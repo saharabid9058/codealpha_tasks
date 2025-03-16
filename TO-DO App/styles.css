@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern To-Do List App</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .app-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        header h1 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #dcdcdc;
+            font-style: italic;
+        }
+
+        .input-section {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #task-input, #due-date {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background: #f0f0f0;
+            font-size: 1rem;
+            width: calc(50% - 10px);
+        }
+
+        #add-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #add-btn:hover {
+            transform: scale(1.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .complete-btn, .delete-btn {
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-left: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .complete-btn:hover {
+            background: #00b894;
+        }
+
+        .delete-btn {
+            background: #d63031;
+        }
+
+        .delete-btn:hover {
+            background: #e17055;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .missing {
+            background: #ffcccc;
+            color: #d63031;
+        }
+
+        .done {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>📋 To-Do List</h1>
+            <p>Organize Your Day with Style!</p>
+        </header>
+
+        <section class="input-section">
+            <input type="text" id="task-input" placeholder="Enter your task here...">
+            <input type="date" id="due-date">
+            <button id="add-btn">➕ Add Task</button>
+        </section>
+
+        <main>
+            <h2>🗒️ Pending Tasks</h2>
+            <ul id="task-list"></ul>
+
+            <h2>✅ Completed Tasks</h2>
+            <ul id="completed-tasks"></ul>
+
+            <h2>⚠️ Missing Tasks</h2>
+            <ul id="missing-tasks"></ul>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
