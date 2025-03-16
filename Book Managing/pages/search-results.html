@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+    <h1>Search Results</h1>
+    <div id="searchResults"></div> 
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get("q").toLowerCase(); 
+const books = [
+    { 
+        id: 1, 
+        title: "The Great Gatsby", 
+        author: "F. Scott Fitzgerald", 
+        category: "fiction", 
+        description: "A classic novel set in the 1920s.", 
+        imageUrl: "https://covers.openlibrary.org/b/id/8225264-L.jpg" 
+    },
+    { 
+        id: 2, 
+        title: "To Kill a Mockingbird", 
+        author: "Harper Lee", 
+        category: "fiction", 
+        description: "A novel about racial injustice.", 
+        imageUrl: "https://covers.openlibrary.org/b/id/8224656-L.jpg" 
+    },
+    { 
+        id: 3, 
+        title: "Sapiens", 
+        author: "Yuval Noah Harari", 
+        category: "non-fiction", 
+        description: "A history of humankind.", 
+        imageUrl: "https://covers.openlibrary.org/b/id/10544884-L.jpg" 
+    },
+    { 
+        id: 4, 
+        title: "A Brief History of Time", 
+        author: "Stephen Hawking", 
+        category: "science", 
+        description: "A book on cosmology.", 
+        imageUrl: "https://covers.openlibrary.org/b/id/10739631-L.jpg" 
+    }
+];
+
+            const filteredBooks = books.filter(book => {
+                return book.title.toLowerCase().includes(query) || book.author.toLowerCase().includes(query);
+            });
+            const searchResultsDiv = document.getElementById("searchResults");
+
+            if (filteredBooks.length > 0) {
+                filteredBooks.forEach(book => {
+                    const bookDiv = document.createElement("div");
+                    bookDiv.classList.add("book-card");
+                    bookDiv.innerHTML = `
+                        <img src="${book.imageUrl}" alt="Book Cover">
+                        <h3>${book.title}</h3>
+                        <p>${book.author}</p>
+                        <p>${book.description}</p>
+                        <button onclick="window.location.href='book-details.html?id=${book.id}'">📖 View Details</button>
+                    `;
+                    searchResultsDiv.appendChild(bookDiv);
+                });
+            } else {
+                searchResultsDiv.innerHTML = "<p>No books found matching your search.</p>";
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="../scripts/index.js" defer></script>
+   
+</head>
+<body>
+
+    <h1>📚 Personal Book Library</h1>
+
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search for books..." />
+        <button id="searchButton">🔍 Search</button>
+    </div>
+        <div class="category-list">
+            <button class="category-btn" data-category="fiction">
+                <i class="fas fa-book"></i> Fiction
+            </button>
+            <button class="category-btn" data-category="non-fiction">
+                <i class="fas fa-newspaper"></i> Non-Fiction
+            </button>
+            <button class="category-btn" data-category="mystery">
+                <i class="fas fa-user-secret"></i> Mystery
+            </button>
+            <button class="category-btn" data-category="science">
+                <i class="fas fa-flask"></i> Science
+            </button>
+        </div>
+        <div class="extra-buttons">
+            <button class="action-btn" onclick="window.location.href='add-book.html'">
+                <i class="fas fa-plus"></i> Add New Book
+            </button>
+            <button class="action-btn" onclick="window.location.href='borrow-history.html'">
+                <i class="fas fa-history"></i> Borrow History
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
