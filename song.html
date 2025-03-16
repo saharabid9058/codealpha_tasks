@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Playing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="back-btn" onclick="window.location.href='category.html'">Back to Category</button>
+            <h1 id="song-title">Now Playing</h1>
+        </header>
+
+        <div class="song-player">
+            <div id="song-name">Song Name</div>
+            <audio id="audio" controls>
+                <source id="audio-src" src="" type="audio/mp3">
+            </audio>
+
+            <div class="controls">
+                <button class="control-btn" onclick="previousSong()">⏪ Prev</button>
+                <button class="control-btn" onclick="playPauseSong()" id="play-pause-btn">▶ Play</button>
+                <button class="control-btn" onclick="nextSong()">⏩ Next</button>
+            </div>
+
+            <div class="volume">
+                <input type="range" id="volume" value="50" onchange="adjustVolume()" />
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
